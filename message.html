@@ -6,22 +6,27 @@
 <style>
 body{
  margin:0; padding:0; font-family:Poppins,sans-serif;
- /* Solid soft-pink background as requested */
  background: #ff8fcf;
  height:100vh; display:flex; justify-content:center; align-items:center;
- overflow:hidden; color:black; text-align:center;
+ overflow:hidden; color:white; text-align:center;
 }
 #box{ width:90%; max-width:600px; }
+
 .line{
- font-size:26px; opacity:0; transform:translateY(20px);
+ font-size:26px; 
+ opacity:0; 
+ transform:translateY(20px);
  animation:fade 5s ease forwards;
  text-shadow:0 0 25px rgba(255,255,255,0.5);
+ font-style: italic; /* ✅ italic added */
 }
+
 @keyframes fade{
  0%{opacity:0; transform:translateY(20px);}
  20%,80%{opacity:1; transform:translateY(0);}
  100%{opacity:0; transform:translateY(-20px);}
 }
+
 .confetti{
  position:fixed; top:-10px; font-size:22px;
  animation:fall 6s linear infinite;
