@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Happy Birthday Huzaifa 🎉</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{
+ margin:0; padding:0; font-family:Poppins,sans-serif;
+ /* Solid soft-pink background as requested */
+ background: #ff8fcf;
+ height:100vh; display:flex; justify-content:center; align-items:center;
+ overflow:hidden; color:white; text-align:center;
+}
+#box{ width:90%; max-width:600px; }
+.line{
+ font-size:26px; opacity:0; transform:translateY(20px);
+ animation:fade 5s ease forwards;
+ text-shadow:0 0 25px rgba(255,255,255,0.5);
+}
+@keyframes fade{
+ 0%{opacity:0; transform:translateY(20px);}
+ 20%,80%{opacity:1; transform:translateY(0);}
+ 100%{opacity:0; transform:translateY(-20px);}
+}
+.confetti{
+ position:fixed; top:-10px; font-size:22px;
+ animation:fall 6s linear infinite;
+}
+@keyframes fall{
+ to{ transform:translateY(110vh) rotate(360deg); }
+}
+
+/* responsive tweak */
+@media(max-width:520px){
+  .line{ font-size:20px; padding:0 10px; }
+}
+</style>
+</head>
+<body>
+
+<div id="box"></div>
+
+<audio autoplay>
+ <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_48e0dacf47.mp3?filename=happy-birthday-soft-piano-14381.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const fx=["🎉","🎊","✨","🎂","🥳"];
+function rain(){
+ let e=document.createElement("div");
+ e.className="confetti";
+ e.textContent=fx[Math.floor(Math.random()*fx.length)];
+ e.style.left=Math.random()*100+"vw";
+ e.style.animationDuration=4+Math.random()*4+"s";
+ document.body.appendChild(e);
+ setTimeout(()=>e.remove(),6000);
+}
+setInterval(rain,250);
+
+const lines=[
+ "🎉 Happy Birthday, Huzaifa! 🎉",
+ "You're not just a friend, you're a brother.",
+ "A brother who stood, laughed, and walked with me.",
+ "Your loyalty is rare. Your heart is pure.",
+ "I am genuinely grateful to have you in my life.",
+ "May your year be full of success and smiles.",
+ "May every prayer of your heart be accepted. Ameen 🤲",
+ "Always shining. Always winning. Always smiling.",
+ "From your brother, Abdul Ahad 💙"
+];
+
+let i=0;
+const box = document.getElementById('box');
+function show(){
+ if(i<lines.length){
+  box.innerHTML="<div class='line'>"+lines[i]+"</div>";
+  i++;
+  setTimeout(show,5000);
+ }
+}
+show();
+</script>
+
+</body>
+</html>
